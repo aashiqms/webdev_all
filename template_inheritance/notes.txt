@@ -1,0 +1,36 @@
+template inheritance is used to reuse html code among different webpages inside template folder
+we can use the following code in the webpage we like to reuse
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Base</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+  </head>
+  <body>
+    <nav class="navbar navbar-default navbar-static-top">
+      <div class="container">
+        <ul class="nav navbar-nav">
+          <li><a class="navbar-brand" href="{% url 'index' %}">DJANGO</a></li>
+          <li><a class="navbar-link" href="{% url 'admin:index' %}">Admin</a></li>
+          <li><a class="navbar-link" href="{% url 'basicapp:other' %}">Other</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="container">
+    {% block body_block %}
+    {# Anything outside of this will be inherited if you use extend.#}
+    {% endblock %}
+    </div>
+</body>
+</html>
+
+the above html page code can be reused in another page with following code
+<!DOCTYPE html>
+{% extends "basicapp/base.html" %}
+    {% block body_block %}
+    <h1>This is an example of template inheritance!</h1>
+    <h2>Officially this is the other.html page!</h2>
+    {% endblock %}

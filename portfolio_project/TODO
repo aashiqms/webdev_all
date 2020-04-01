@@ -1,0 +1,28 @@
+
+Todo:
+  ✔ 1) create ModelForm in forms.py @done(20-03-28 07:34)
+  ✔ connect form in the template @done(20-03-28 08:12)
+  ✔ edit views.py to show the form @done(20-03-28 08:12)
+  ☐ figure out how to .save() data
+  ☐ verify the model is admin registered
+
+
+  Notes:
+    1) ModelForm is the class we create in forms.py under app folder
+
+    we create form fields inside this class
+
+    name = forms.CharField()
+    email = forms.EmailField()
+    verify_email = forms.EmailField(label='enter your email again')
+    text = forms.CharField(widget=forms.Textarea)
+
+    The clean() method on a Field subclass is responsible for running to_python(), validate(), and run_validators() in the correct order and propagating their errors. If, at any time, any of the methods raise ValidationError, the validation stops and that error is raised. This method returns the clean data, which is then inserted into the cleaned_data dictionary of the form.
+
+
+
+
+
+
+    
+
